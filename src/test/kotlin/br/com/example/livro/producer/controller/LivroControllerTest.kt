@@ -1,8 +1,9 @@
 package br.com.example.livro.producer.controller
 
-import br.com.example.livro.producer.dto.LivroDto
-import br.com.example.livro.producer.model.Livro
-import br.com.example.livro.producer.nats.services.LivroService
+import br.com.example.livro.database.entity.Livro
+import br.com.example.livro.entrypoint.controller.LivroController
+import br.com.example.livro.entrypoint.dto.LivroDto
+import br.com.example.livro.entrypoint.service.LivroService
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 

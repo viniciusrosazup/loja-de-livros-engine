@@ -1,11 +1,11 @@
-package br.com.example.livro.subscriber.model
+package br.com.example.livro.entrypoint.model
 
 import io.micronaut.core.annotation.Introspected
 import java.util.*
 
 @Introspected
 class Livro(
-    val id: UUID,
+    val id:UUID,
     val autor: String,
     val description: String,
     val numero_de_paginas: String,

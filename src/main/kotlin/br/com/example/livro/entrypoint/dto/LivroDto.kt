@@ -1,6 +1,6 @@
-package br.com.example.livro.producer.dto
+package br.com.example.livro.entrypoint.dto
 
-import br.com.example.livro.producer.model.Livro
+import br.com.example.livro.database.entity.Livro
 import java.util.*
 
 class LivroDto(
