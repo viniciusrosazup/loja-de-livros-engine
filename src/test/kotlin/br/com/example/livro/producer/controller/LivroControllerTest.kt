@@ -3,9 +3,7 @@ package br.com.example.livro.producer.controller
 import br.com.example.livro.database.entity.Livro
 import br.com.example.livro.entrypoint.controller.LivroController
 import br.com.example.livro.entrypoint.dto.LivroDto
-import br.com.example.livro.entrypoint.service.LivroService
 import io.kotest.core.spec.style.AnnotationSpec
-import io.kotest.matchers.shouldBe
 
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.MockKAnnotations
