@@ -5,7 +5,7 @@ import java.util.*
 
 
 @Introspected
-class Livro(
+class LivroEntity(
     val id: UUID,
     val autor: String,
     val description: String,

@@ -1,6 +1,6 @@
 package br.com.example.livro.entrypoint.dto
 
-import br.com.example.livro.database.entity.Livro
+import br.com.example.livro.database.entity.LivroEntity
 import java.util.*
 
 class LivroDto(
@@ -11,8 +11,8 @@ class LivroDto(
     val isbn: String,
     val preco: Double
 ) {
-    fun toModel(): Livro {
-        return Livro(
+    fun toModel(): LivroEntity {
+        return LivroEntity(
             id, autor, description, numero_de_paginas, isbn, preco
         )
 

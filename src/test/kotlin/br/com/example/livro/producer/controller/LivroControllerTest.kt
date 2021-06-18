@@ -1,6 +1,6 @@
 package br.com.example.livro.producer.controller
 
-import br.com.example.livro.database.entity.Livro
+import br.com.example.livro.database.entity.LivroEntity
 import br.com.example.livro.entrypoint.controller.LivroController
 import br.com.example.livro.entrypoint.dto.LivroDto
 import io.kotest.core.spec.style.AnnotationSpec
@@ -21,7 +21,7 @@ class LivroControllerTest : AnnotationSpec(){
     @MockK
     lateinit var livroService: LivroService
     lateinit var livroDto: LivroDto
-    lateinit var livro: Livro
+    lateinit var livro: LivroEntity
 
     @BeforeEach
     fun setUp() {
@@ -35,7 +35,7 @@ class LivroControllerTest : AnnotationSpec(){
             preco = 89.9
         )
 
-        livro= Livro(
+        livro= LivroEntity(
             livroDto.id,
             livroDto.autor,
             livroDto.description,

@@ -1,6 +1,6 @@
 package br.com.example.livro.database.repository
 
-import br.com.example.livro.database.entity.Livro
+import br.com.example.livro.database.entity.LivroEntity
 import com.datastax.oss.driver.api.core.CqlIdentifier
 import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.SimpleStatement
@@ -9,13 +9,13 @@ import javax.inject.Singleton
 
 @Singleton
 class RepositoryImpl(private val session: CqlSession) : Repository {
-    override fun buscaLivro(): MutableList<Livro> {
+    override fun buscaLivro(): MutableList<LivroEntity> {
         val rows = session.execute(
             SimpleStatement.newInstance(
                 "SELECT * FROM LIVRO"
             )
         ).toList()
-        val livros: MutableList<Livro> = mutableListOf()
+        val livros: MutableList<LivroEntity> = mutableListOf()
         for (row in rows) {
             val id = row.getUuid(CqlIdentifier.fromCql("id"))!!
             val autor = row.getString(CqlIdentifier.fromCql("autor"))!!
@@ -25,7 +25,7 @@ class RepositoryImpl(private val session: CqlSession) : Repository {
             val preco = row.getDouble(CqlIdentifier.fromCql("preco"))!!
 
             livros.add(
-                Livro(
+                LivroEntity(
                     id,
                     autor,
                     description,
@@ -42,14 +42,14 @@ class RepositoryImpl(private val session: CqlSession) : Repository {
     }
 
 
-    override fun buscaLivroPorId(id: UUID): Livro? {
+    override fun buscaLivroPorId(id: UUID): LivroEntity? {
         try {
             val selectResult = session.execute(
                 SimpleStatement.newInstance("SELECT * FROM livro.Livro WHERE id = ? LIMIT 100000", id)
             )
 
             val livro = selectResult.map {
-                Livro(
+                LivroEntity(
                     id = it.getUuid("id")!!,
                     autor = it.getString("autor")!!,
                     description = it.getString("description")!!,
