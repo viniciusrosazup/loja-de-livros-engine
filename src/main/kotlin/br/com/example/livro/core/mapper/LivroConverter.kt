@@ -8,7 +8,7 @@ import java.util.stream.Collectors
 class LivroConverter {
     companion object {
         fun listOfLivroEntityToLivroDto(listOfBooksEntity: MutableList<Livro>?) =
-            listOfBooksEntity.stream().map { livro ->
+            listOfBooksEntity?.stream()?.map { livro ->
                 LivroDto(
                     livro.id,
                     livro.autor,
@@ -17,7 +17,7 @@ class LivroConverter {
                     livro.isbn,
                     livro.preco
                 )
-            }.collect(Collectors.toList())
+            }?.collect(Collectors.toList())
 
 
         fun LivroEntityToDto(livro: br.com.example.livro.database.entity.LivroEntity) = LivroDto(
@@ -38,9 +38,9 @@ class LivroConverter {
             livroEntity.preco
         )
 
-        fun LivroEntityListToLivroList(livro: MutableList<LivroEntity>?) = livro.stream().map { livro ->
+        fun LivroEntityListToLivroList(livro: MutableList<LivroEntity>?) = livro?.stream()?.map { livro ->
             Livro(livro.id, livro.autor, livro.description, livro.numero_de_paginas, livro.isbn, livro.preco)
-        }.collect(Collectors.toList())
+        }?.collect(Collectors.toList())
 
     }
 }
