@@ -4,11 +4,14 @@ import br.com.example.livro.database.entity.LivroEntity
 import com.datastax.oss.driver.api.core.CqlIdentifier
 import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.SimpleStatement
+import org.slf4j.LoggerFactory
 import java.util.*
 import javax.inject.Singleton
 
 @Singleton
 class RepositoryImpl(private val session: CqlSession) : Repository {
+    private val logger = LoggerFactory.getLogger(this::class.java)
+
     override fun buscaLivro(): MutableList<LivroEntity> {
         val rows = session.execute(
             SimpleStatement.newInstance(
@@ -37,6 +40,8 @@ class RepositoryImpl(private val session: CqlSession) : Repository {
             )
         }
 
+        logger.info("Livro buscado com sucesso do método {}", buscaLivro())
+
         return livros
 
     }
@@ -58,6 +63,8 @@ class RepositoryImpl(private val session: CqlSession) : Repository {
                     preco = it.getDouble("preco")!!
                 )
             }.firstOrNull()
+
+            logger.info("Livro buscado com sucesso do método {}", buscaLivroPorId(id))
 
             return livro
 

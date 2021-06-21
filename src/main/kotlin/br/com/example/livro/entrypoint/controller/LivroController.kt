@@ -13,7 +13,7 @@ class LivroController(private val service: LivroServicePort) {
     @Get
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    fun buscaLivros(): MutableList<LivroDto> {
+    fun buscaLivros(): MutableList<LivroDto>? {
         return LivroConverter.listOfLivroEntityToLivroDto(service.findLivroList())
     }
 

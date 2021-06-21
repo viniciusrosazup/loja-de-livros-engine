@@ -1,15 +1,15 @@
 package br.com.example.livro.entrypoint.dto
 
 import br.com.example.livro.database.entity.LivroEntity
-import java.util.*
+import java.util.UUID
 
-class LivroDto(
-    val id:UUID,
-    val autor: String,
-    val description: String,
-    val numero_de_paginas: String,
-    val isbn: String,
-    val preco: Double
+data class LivroDto(
+    val id: UUID? = null,
+    val autor: String = "",
+    val description: String = "",
+    val numero_de_paginas: String = "",
+    val isbn: String = "",
+    val preco: Double = 0.0
 ) {
     fun toModel(): LivroEntity {
         return LivroEntity(
