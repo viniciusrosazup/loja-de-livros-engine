@@ -20,7 +20,7 @@ class LivroConverter {
             }?.collect(Collectors.toList())
 
 
-        fun LivroEntityToDto(livro: br.com.example.livro.database.entity.LivroEntity) = LivroDto(
+        fun LivroEntityToDto(livro: Livro) = LivroDto(
             livro.id,
             livro.autor,
             livro.description,
@@ -29,7 +29,7 @@ class LivroConverter {
             livro.preco
         )
 
-        fun LivroEntitytoLivro(livroEntity: LivroEntity): Livro = Livro(
+        fun LivroEntitytoLivro(livroEntity: LivroEntity) = Livro(
             livroEntity.id,
             livroEntity.autor,
             livroEntity.description,

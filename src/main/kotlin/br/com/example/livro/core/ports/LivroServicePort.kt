@@ -8,5 +8,5 @@ import javax.inject.Singleton
 @Singleton
 interface LivroServicePort {
     fun findLivroList(): MutableList<Livro>?
-    fun findByLivroId(id: UUID): LivroEntity
+    fun findByLivroId(id: UUID): Livro
 }
